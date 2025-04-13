@@ -31,7 +31,7 @@ app.post('/api/shorturl', function(req, res) {
   const url = req.body.url;
 
   if(!isValidHttpUrl(url)) {
-    return res.status(400).json({ error: 'invalid url' });
+    return res.json({ error: 'invalid url' });
   }
 
   const shortUrl = Math.floor(Math.random() * 10).toString();
