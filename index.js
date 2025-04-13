@@ -25,7 +25,10 @@ app.get('/api/hello', function(req, res) {
 function isValidHttpUrl(string) {
   try {
     const url = new URL(string);
-    return url.protocol === 'http:' || url.protocol === 'https:';
+    return (
+      (url.protocol === "http:" || url.protocol === "https:") &&
+      url.hostname.startsWith("www.")
+    );
   } catch(_) {
     return false;
   }
