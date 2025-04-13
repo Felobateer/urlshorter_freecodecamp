@@ -25,9 +25,6 @@ app.get('/api/hello', function(req, res) {
 app.post('/api/shorturl', function(req, res) {
   const url = req.body.url;
   const shortUrl = Math.floor(Math.random() * 10);
-  
-  // Here you would typically save the URL and its short version to a database
-  // For this example, we will just return the short URL
   res.json({ original_url: url, short_url: shortUrl });
 });
 
