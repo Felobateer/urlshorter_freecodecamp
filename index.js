@@ -24,8 +24,8 @@ app.get('/api/hello', function(req, res) {
 
 function isValidHttpUrl(string) {
   try {
-    const url = new URL(string);
-    return url.protocol === 'http:' || url.protocol === 'https:';
+    const regex = /^https?:\/\/www\.[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(\/.*)?$/;
+    return regex.test(string);
   } catch(_) {
     return false;
   }
