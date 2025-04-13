@@ -23,12 +23,8 @@ app.get('/api/hello', function(req, res) {
 });
 
 function isValidHttpUrl(string) {
-  try {
-    const regex = /^https?:\/\/www\.[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(\/.*)?$/;
-    return regex.test(string);
-  } catch(_) {
-    return false;
-  }
+  const regex = /^https?:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/.*)?$/;
+  return regex.test(string);
 }
 
 app.post('/api/shorturl', function(req, res) {
